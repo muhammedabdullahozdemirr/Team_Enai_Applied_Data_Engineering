@@ -1,0 +1,13 @@
+{
+    "Servers": {
+        "1": {
+            "Name": "YZV322E PostgreSQL",
+            "Group": "Servers",
+            "Host": "postgres",
+            "Port": 5432,
+            "MaintenanceDB": "ecommerce",
+            "Username": "ecom_user",
+            "SSLMode": "prefer"
+        }
+    }
+}
