@@ -185,6 +185,34 @@ services:
       - ./nifi/templates:/opt/nifi/nifi-current/templates:ro
     networks: [pipeline]
 
+  airflow:
+    image: apache/airflow:2.9.3-python3.11
+    container_name: airflow
+    depends_on:
+      postgres:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+    environment:
+      AIRFLOW__CORE__EXECUTOR: SequentialExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: sqlite:////opt/airflow/airflow.db
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__CORE__DAGS_FOLDER: /opt/airflow/dags
+      AIRFLOW__WEBSERVER__SECRET_KEY: yzv322e_airflow_secret
+      _AIRFLOW_DB_UPGRADE: "true"
+      _AIRFLOW_WWW_USER_CREATE: "true"
+      _AIRFLOW_WWW_USER_USERNAME: admin
+      _AIRFLOW_WWW_USER_PASSWORD: yzv322e_admin_pass
+      _PIP_ADDITIONAL_REQUIREMENTS: "elasticsearch==7.17.9 psycopg2-binary"
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - airflow_data:/opt/airflow
+      - airflow_logs:/opt/airflow/logs
+    command: standalone
+    networks: [pipeline]
+
 volumes:
   kafka_data:
   pg_data:
@@ -195,7 +223,9 @@ volumes:
   nifi_provenance:
   nifi_state:
   nifi_logs:
-
+  airflow_data:
+  airflow_logs: 
+  
 networks:
   pipeline:
     driver: bridge
