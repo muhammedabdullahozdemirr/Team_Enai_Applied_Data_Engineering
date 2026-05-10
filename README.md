@@ -179,12 +179,10 @@ Full results in `bench/results.csv`. Reproduce with `./scripts/benchmark.sh`.
 
 ## Team
 
-| Member | Student ID |
-|---|---|---|
-| Muhammed Abdullah Özdemir | 150220340 |
-| Nurettin Macit | 150220329 |
-| Muhammed Hasan Bilal Cebeci | 150220339 |
-| Muhammed Furkan Şıhanoğlu | 150220301 |
+Muhammed Abdullah Özdemir  150220340 
+Nurettin Macit  150220329 
+Muhammed Hasan Bilal Cebeci 150220339
+Muhammed Furkan Şıhanoğlu 150220301
 
 ---
 
