@@ -116,7 +116,7 @@ services:
     restart: "no"
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.4
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.21
     container_name: elasticsearch
     environment:
       discovery.type: single-node
@@ -136,7 +136,7 @@ services:
     networks: [pipeline]
 
   kibana:
-    image: docker.elastic.co/kibana/kibana:8.11.4
+    image: docker.elastic.co/kibana/kibana:7.17.21
     container_name: kibana
     depends_on:
       elasticsearch:
