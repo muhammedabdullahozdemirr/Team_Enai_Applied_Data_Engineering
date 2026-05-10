@@ -1,0 +1,6 @@
+rate_target,total_events,producer_duration_sec,producer_actual_rate,pipeline_duration_sec,pipeline_throughput,pipeline_lag_sec,es_indexed,dlq_count
+50,10000,202,49.50,211,47.39,9,9710,290
+100,10000,102,98.04,112,89.29,10,9698,302
+250,10000,42,238.10,51,196.10,9,9701,300
+500,10000,23,434.78,32,312.50,9,9709,291
+1000,10000,12,833.33,21,476.19,9,9653,347
